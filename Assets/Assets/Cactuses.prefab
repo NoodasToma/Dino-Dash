@@ -370,6 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4441228522013511977}
   - component: {fileID: 658829323693676820}
+  - component: {fileID: -3080919857738633410}
   m_Layer: 0
   m_Name: Cactuses
   m_TagString: Untagged
@@ -409,3 +410,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   deadZone: -45
+--- !u!114 &-3080919857738633410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6793257513235309826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7df72ae672133444bdca948371836bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dinosaur: {fileID: 0}
+  jump: 0
+  onGround: 1
