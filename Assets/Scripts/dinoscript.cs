@@ -8,25 +8,33 @@ public class dinoscript : MonoBehaviour
 
     public float jump;
 
-    public bool onGround = true;
+    public Logic_Script logic;
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logic_Script>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if(Input.GetKeyDown(KeyCode.Space) && onGround ){
+        if(Input.GetKeyDown(KeyCode.Space)){
             dinosaur.velocity = Vector2.up * jump;
-            onGround = false;
+            
         }
         
         if(Input.GetKeyDown(KeyCode.Escape)){
             Application.Quit();
         }
+    }
+
+     private void OnCollisionEnter2D(Collision2D collision) {
+        logic.gameOver();
+        
+        
     }
 }

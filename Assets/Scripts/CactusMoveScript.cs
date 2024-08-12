@@ -19,7 +19,7 @@ public class CactusMoveScript : MonoBehaviour
         transform.position = transform.position + (Vector3.left * moveSpeed) * Time.deltaTime;
         if(transform.position.x < deadZone)
         {
-            Debug.Log("Cactus deleted.");
+            Debug.Log("Wolfgang deleted.");
             Destroy(gameObject);
         }
     }
