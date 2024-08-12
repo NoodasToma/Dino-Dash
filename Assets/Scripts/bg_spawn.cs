@@ -13,7 +13,7 @@ public class bg_spawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(bg,new Vector3((float)49.5, (float)1.2, 0),transform.rotation);
+        Instantiate(bg,new Vector3((float)49.5, (float)1.1, 0),transform.rotation);
         
     }
 
