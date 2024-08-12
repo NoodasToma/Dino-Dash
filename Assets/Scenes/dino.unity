@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 204538425}
   - component: {fileID: 204538423}
   - component: {fileID: 204538428}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: dino
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,8 +560,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -459167089
-  m_SortingLayer: 2
+  m_SortingLayerID: 1047343011
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 545d718ac7bbf9d41a5d83ea798d60e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -603,7 +603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 533d2895bea848b469e810df10d87a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScore: 0
+  playerScore: 1
   scoreText: {fileID: 1257144953}
   gameOverScreen: {fileID: 1566940299}
 --- !u!4 &893925385
@@ -930,7 +930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -827, y: 403}
+  m_AnchoredPosition: {x: -325, y: 147}
   m_SizeDelta: {x: 158.8, y: 161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1257144953
