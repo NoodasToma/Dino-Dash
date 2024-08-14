@@ -7,23 +7,25 @@ public class dinoscript : MonoBehaviour
     public Rigidbody2D dinosaur;
 
     public float jump;
-
-    public Logic_Script logic;
-
-    
-
+    public bool dinoIsAlive = true;
+   
     // Start is called before the first frame update
     void Start()
     {
-        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logic_Script>();
+      
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        float currentY = GetComponent<Transform>().position.y;
 
-        if(Input.GetKeyDown(KeyCode.Space)){
-            dinosaur.velocity = Vector2.up * jump;
+        if(Input.GetKeyDown(KeyCode.Space) && dinoIsAlive){
+            if(currentY < -3.26){
+                dinosaur.velocity = Vector2.up * jump;
+            }
+            
             
         }
         
@@ -32,9 +34,10 @@ public class dinoscript : MonoBehaviour
         }
     }
 
-     private void OnCollisionEnter2D(Collision2D collision) {
-        logic.gameOver();
-        
-        
+    public void death(){
+        dinoIsAlive = false;
+
     }
+
+   
 }
