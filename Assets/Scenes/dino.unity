@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 204538428}
   m_Layer: 3
   m_Name: dino
-  m_TagString: Untagged
+  m_TagString: Dino
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dinosaur: {fileID: 204538425}
   jump: 7
-  onGround: 0
+  dinoIsAlive: 1
 --- !u!50 &204538425
 Rigidbody2D:
   serializedVersion: 4
@@ -1043,6 +1043,8 @@ MonoBehaviour:
   cactus: {fileID: 103317995694531122, guid: ecd9e946cec24654f8221a9b7dd9ce2a, type: 3}
   spawnRte: 1.5
   widthOffset: 1.5
+  min: 2.5
+  max: 4
 --- !u!4 &1666602375
 Transform:
   m_ObjectHideFlags: 0

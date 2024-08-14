@@ -6,9 +6,11 @@ public class CactusSpawnScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject cactus;
-    public float spawnRte = 1.5F;
+    private float spawnRte;
     private float timer = 0;
     public float widthOffset = 1.5F;
+    public float min = 2.5f;
+    public float max = 3f;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class CactusSpawnScript : MonoBehaviour
         else
         {
             timer = 0;
+            spawnRte = Random.Range(min, max);
             spawnCactus();
         }
         
