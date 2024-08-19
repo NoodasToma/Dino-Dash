@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TopTriggerScript : MonoBehaviour
 {
-    public Logic_Script logic;
+    private Logic_Script logic;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -23,8 +24,8 @@ public class TopTriggerScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.layer == 3){
             logic.addScore(1);
-            
         }
-      
+
+         
     }
 }

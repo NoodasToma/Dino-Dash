@@ -8,9 +8,9 @@ public class CactusSpawnScript : MonoBehaviour
     public GameObject cactus;
     private float spawnRte;
     private float timer = 0;
-    public float widthOffset = 1.5F;
-    public float min = 2.5f;
-    public float max = 3f;
+   
+    public float min ;
+    public float max ;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,8 +36,8 @@ public class CactusSpawnScript : MonoBehaviour
 
     void spawnCactus()
     {
-        float closestPoint = transform.position.x - widthOffset;
-        float furthestPoint = transform.position.x + widthOffset;
+        float closestPoint = transform.position.x ;
+        float furthestPoint = transform.position.x ;
         Instantiate(cactus, new Vector3(Random.Range(closestPoint, furthestPoint), transform.position.y, 0), transform.rotation);
     }
 }

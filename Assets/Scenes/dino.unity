@@ -235,8 +235,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dinosaur: {fileID: 204538425}
-  jump: 7
+  jump: 17.5
   dinoIsAlive: 1
+  fallGravity: 2.5
+  regularGravity: 5
 --- !u!50 &204538425
 Rigidbody2D:
   serializedVersion: 4
@@ -251,8 +253,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 17.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -263,7 +265,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &204538426
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -374,7 +376,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.14, y: 0.17}
+  m_Size: {x: 0.1, y: 0.17}
   m_EdgeRadius: 0
 --- !u!1 &371586179
 GameObject:
@@ -494,7 +496,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -505,7 +507,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 10, y: 10}
   m_EdgeRadius: 0
 --- !u!4 &490880239
 Transform:
@@ -923,14 +925,14 @@ RectTransform:
   m_GameObject: {fileID: 1257144951}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.79069984, y: 0.79069984, z: 0.79069984}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1223408058}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -837, y: 431}
+  m_AnchoredPosition: {x: -862.2, y: 469.6}
   m_SizeDelta: {x: 158.8, y: 161}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1257144953
@@ -1041,10 +1043,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cactus: {fileID: 103317995694531122, guid: ecd9e946cec24654f8221a9b7dd9ce2a, type: 3}
-  spawnRte: 1.5
-  widthOffset: 1.5
-  min: 2.5
-  max: 4
+  min: 0.8
+  max: 2
 --- !u!4 &1666602375
 Transform:
   m_ObjectHideFlags: 0
@@ -1054,7 +1054,7 @@ Transform:
   m_GameObject: {fileID: 1666602373}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.01, y: -2.86, z: 0}
+  m_LocalPosition: {x: 12.01, y: -3.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1188,7 +1188,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1903090031}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 893925384}
+        m_TargetAssemblyTypeName: Logic_Script, Assembly-CSharp
+        m_MethodName: restartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1903090031
 MonoBehaviour:
   m_ObjectHideFlags: 0

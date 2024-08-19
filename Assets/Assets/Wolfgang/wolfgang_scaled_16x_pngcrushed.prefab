@@ -123,8 +123,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 4
   deadZone: -45
-  logic: {fileID: 0}
-  dino: {fileID: 0}
 --- !u!61 &6940503936739327137
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -168,7 +166,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.21, y: 10.3}
+  m_Size: {x: 3, y: 10}
   m_EdgeRadius: 0
 --- !u!1 &5712481448713171112
 GameObject:
@@ -197,8 +195,8 @@ Transform:
   m_GameObject: {fileID: 5712481448713171112}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.150985, y: -1.4514544, z: -0.13729236}
-  m_LocalScale: {x: 5.8705654, y: 5.8705654, z: 5.8705654}
+  m_LocalPosition: {x: 2.150985, y: -13.399, z: -0.13729236}
+  m_LocalScale: {x: 5.8705654, y: 11.506309, z: 5.8705654}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7896989042680513540}
@@ -260,4 +258,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c598041a8d345bb4789f16d38b6468c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logic: {fileID: 0}
