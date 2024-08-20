@@ -11,10 +11,12 @@ public class CactusSpawnScript : MonoBehaviour
    
     public float min ;
     public float max ;
+
+    public float offset ;
     // Start is called before the first frame update
     void Start()
     {
-        spawnCactus();
+        
     }
 
     // Update is called once per frame
@@ -29,6 +31,7 @@ public class CactusSpawnScript : MonoBehaviour
             timer = 0;
             spawnRte = Random.Range(min, max);
             spawnCactus();
+            Debug.Log(spawnRte);
         }
         
        
@@ -36,8 +39,8 @@ public class CactusSpawnScript : MonoBehaviour
 
     void spawnCactus()
     {
-        float closestPoint = transform.position.x ;
-        float furthestPoint = transform.position.x ;
+        float closestPoint = transform.position.x + offset;
+        float furthestPoint = transform.position.x - offset ;
         Instantiate(cactus, new Vector3(Random.Range(closestPoint, furthestPoint), transform.position.y, 0), transform.rotation);
     }
 }

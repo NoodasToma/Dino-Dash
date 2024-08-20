@@ -23,7 +23,7 @@ public class CactusMoveScript : MonoBehaviour
          dino = GameObject.FindGameObjectWithTag("Dino").GetComponent<dinoscript>();
 
          timesIncreased=logic.playerScore/10;
-         moveSpeed +=2*timesIncreased;
+         moveSpeed += timesIncreased;
     }
 
     // Update is called once per frame
