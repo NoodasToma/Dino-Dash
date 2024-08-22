@@ -14,6 +14,8 @@ public class CactusMoveScript : MonoBehaviour
     private bool speedIncreased;
 
     private float timesIncreased=1;
+
+    private Animator myAnimator;
     
     
     // Start is called before the first frame update
@@ -21,7 +23,7 @@ public class CactusMoveScript : MonoBehaviour
     {   
          logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logic_Script>();
          dino = GameObject.FindGameObjectWithTag("Dino").GetComponent<dinoscript>();
-
+         myAnimator = GameObject.FindGameObjectWithTag("Dino").GetComponent<Animator>();
          timesIncreased=logic.playerScore/10;
          moveSpeed += timesIncreased;
     }
@@ -43,7 +45,7 @@ public class CactusMoveScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         logic.gameOver();
         dino.death();
-        
+        myAnimator.SetBool("Dead",true);
         
     }
 

@@ -16,12 +16,14 @@ public class dinoscript : MonoBehaviour
 
     public float regularGravity;
 
+    private Animator myAnimator;
+
     
    
     // Start is called before the first frame update
     void Start()
     {
-      
+      myAnimator = GetComponent<Animator>();
 
     }
 
@@ -33,8 +35,15 @@ public class dinoscript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && dinoIsAlive){
             if(currentY < -3.26){ 
                 dinosaur.velocity = Vector2.up*jump;
-                
+                myAnimator.SetBool("Jump",true);
             }
+        }
+
+        if(currentY > -3.26){
+            myAnimator.SetBool("Jump",true);
+        }
+        else{
+            myAnimator.SetBool("Jump",false);
         }
 
         if(isFalling()){
@@ -52,6 +61,7 @@ public class dinoscript : MonoBehaviour
 
     public void death(){
         dinoIsAlive = false;
+        transform.Rotate(0,0,90);
 
     }
 
