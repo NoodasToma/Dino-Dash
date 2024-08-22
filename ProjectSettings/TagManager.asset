@@ -7,6 +7,7 @@ TagManager:
   - Logic
   - Dino
   - onGround
+  - Beer
   layers:
   - Default
   - TransparentFX

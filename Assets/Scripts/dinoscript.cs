@@ -18,6 +18,8 @@ public class dinoscript : MonoBehaviour
 
     private Animator myAnimator;
 
+    private bool drunk ;
+
     
    
     // Start is called before the first frame update
@@ -33,9 +35,11 @@ public class dinoscript : MonoBehaviour
         float currentY = GetComponent<Transform>().position.y;
 
         if(Input.GetKeyDown(KeyCode.Space) && dinoIsAlive){
-            if(currentY < -3.26){ 
+            if(currentY < -3.26||drunk&&currentY > -3.26){ 
                 dinosaur.velocity = Vector2.up*jump;
                 myAnimator.SetBool("Jump",true);
+                drunk=false;
+                myAnimator.SetBool("Drunk",false);
             }
         }
 
@@ -74,6 +78,14 @@ public class dinoscript : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+
+    void OnTriggerEnter2D(Collider2D other){
+        if(other.gameObject.tag=="Beer"){
+            drunk=true;
+            myAnimator.SetBool("Drunk",true);
+        }
     }
 
     
