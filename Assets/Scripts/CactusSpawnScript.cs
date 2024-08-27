@@ -6,6 +6,9 @@ public class CactusSpawnScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject cactus;
+
+    public GameObject cactus2;
+
     private float spawnRte;
     private float timer = 0;
    
@@ -13,6 +16,8 @@ public class CactusSpawnScript : MonoBehaviour
     public float max ;
 
     public float offset ;
+
+    public bool item;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +36,6 @@ public class CactusSpawnScript : MonoBehaviour
             timer = 0;
             spawnRte = Random.Range(min, max);
             spawnCactus();
-            Debug.Log(spawnRte);
         }
         
        
@@ -41,6 +45,28 @@ public class CactusSpawnScript : MonoBehaviour
     {
         float closestPoint = transform.position.x + offset;
         float furthestPoint = transform.position.x - offset ;
-        Instantiate(cactus, new Vector3(Random.Range(closestPoint, furthestPoint), transform.position.y, 0), transform.rotation);
+
+        float closestPointy = transform.position.y + offset;
+        float furthestPointy = transform.position.y;
+
+        if(item){
+           if(Random.Range(0,2)==0){
+            Instantiate(cactus, new Vector3(Random.Range(closestPoint, furthestPoint), Random.Range(closestPointy, furthestPointy), 0), transform.rotation);
+          }
+          else{
+             Instantiate(cactus2, new Vector3(Random.Range(closestPoint, furthestPoint), Random.Range(closestPointy, furthestPointy), 0), transform.rotation);
+          }
+        }else{
+            if(Random.Range(0,2)==0){
+            Instantiate(cactus, new Vector3(Random.Range(closestPoint, furthestPoint), transform.position.y, 0), transform.rotation);
+          }
+          else{
+             Instantiate(cactus2, new Vector3(Random.Range(closestPoint, furthestPoint), transform.position.y, 0), transform.rotation);
+          }
+        }
+
+        
+
+        
     }
 }

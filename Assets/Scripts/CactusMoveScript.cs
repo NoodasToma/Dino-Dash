@@ -7,7 +7,7 @@ public class CactusMoveScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public float moveSpeed ;
-    public float deadZone = -45;
+    public float deadZone ;
     private Logic_Script logic;
     private dinoscript dino;
 
@@ -16,6 +16,8 @@ public class CactusMoveScript : MonoBehaviour
     private float timesIncreased=1;
 
     private Animator myAnimator;
+
+    private Animator oppAnimator;
     
     
     // Start is called before the first frame update
@@ -24,6 +26,7 @@ public class CactusMoveScript : MonoBehaviour
          logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logic_Script>();
          dino = GameObject.FindGameObjectWithTag("Dino").GetComponent<dinoscript>();
          myAnimator = GameObject.FindGameObjectWithTag("Dino").GetComponent<Animator>();
+         oppAnimator = GetComponent<Animator>();
          timesIncreased=logic.playerScore/10;
          moveSpeed += timesIncreased;
     }
@@ -42,11 +45,31 @@ public class CactusMoveScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
-        logic.gameOver();
-        dino.death();
-        myAnimator.SetBool("Dead",true);
+    private void OnCollisionEnter2D(UnityEngine.Collision2D collision)
+    {
         
+        if(collision.gameObject.tag=="Dino"){
+         logic.gameOver();
+         dino.death();
+         myAnimator.SetBool("Dead",true);
+        }
+
+        
+       
+        
+    }
+
+
+  
+
+    
+
+    public void burn(){
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        oppAnimator.SetBool("Burnt",true);
+        Debug.Log("Burnt");
+        
+             
     }
 
     

@@ -8,6 +8,10 @@ TagManager:
   - Dino
   - onGround
   - Beer
+  - Fire
+  - Opp
+  - Lobiani
+  - FireCount
   layers:
   - Default
   - TransparentFX
