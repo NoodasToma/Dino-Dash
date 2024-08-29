@@ -11,8 +11,6 @@ public class CactusMoveScript : MonoBehaviour
     private Logic_Script logic;
     private dinoscript dino;
 
-    private bool speedIncreased;
-
     private float timesIncreased=1;
 
     private Animator myAnimator;

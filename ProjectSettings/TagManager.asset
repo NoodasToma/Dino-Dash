@@ -12,6 +12,7 @@ TagManager:
   - Opp
   - Lobiani
   - FireCount
+  - Help
   layers:
   - Default
   - TransparentFX

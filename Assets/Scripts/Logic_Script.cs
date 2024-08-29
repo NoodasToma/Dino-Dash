@@ -12,6 +12,8 @@ public class Logic_Script : MonoBehaviour
     public Text highScore;
     public GameObject gameOverScreen;
 
+     public GameObject HelpScreen;
+
     [ContextMenu("Increase Score")]
 
 
@@ -44,6 +46,16 @@ public class Logic_Script : MonoBehaviour
         gameOverScreen.SetActive(true);
        
     }
+
+    public void help(){
+        HelpScreen.SetActive(true);
+    }
+
+    public void ExitHelp(){
+        HelpScreen.SetActive(false);
+    }
+
+
 
 
 

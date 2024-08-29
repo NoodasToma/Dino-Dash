@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.VisualScripting;
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class dinoscript : MonoBehaviour
@@ -27,7 +28,13 @@ public class dinoscript : MonoBehaviour
 
     private Animator fireCount;
 
-    
+    public float maxJump;
+
+    public float jumpMul;
+
+    private bool inAir = false;
+
+    private float jumpCount = 0;
 
    
            
@@ -43,15 +50,34 @@ public class dinoscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float currentY = GetComponent<Transform>().position.y;
+        
+        
 
         if((Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.Mouse0)) && dinoIsAlive){
-            if(currentY < -3.26||drunk&&currentY > -3.26){ 
+            if(onGround()||drunk&&!onGround()){ 
                 dinosaur.velocity = Vector2.up*jump;
                 myAnimator.SetBool("Jump",true);
                 drunk=false;
                 myAnimator.SetBool("Drunk",false);
+                inAir=true;
+                jumpCount=0;
             }
+        }
+
+        if(dinosaur.velocity.y>0&&inAir){
+            jumpCount+= Time.deltaTime;
+            
+            if(jumpCount>maxJump) inAir =false;
+
+            dinosaur.velocity += new Vector2(0,-Physics2D.gravity.y)*jumpMul*Time.deltaTime;
+        }
+
+
+
+        
+
+        if(Input.GetKeyUp(KeyCode.Space)||Input.GetKeyUp(KeyCode.Mouse0)){
+            inAir = false;
         }
 
         if((Input.GetKeyDown(KeyCode.LeftShift)||Input.GetKeyDown(KeyCode.Mouse1))&&dinoIsAlive){
@@ -66,7 +92,7 @@ public class dinoscript : MonoBehaviour
          }
         }
 
-        if(currentY > -3.26){
+        if(!onGround()){
             myAnimator.SetBool("Jump",true);
         }
         else{
@@ -119,9 +145,21 @@ public class dinoscript : MonoBehaviour
 
     void FireCount(){
         fireCount.SetInteger("Count",shots.ToArray().Length);
-       
+         
 
     }
+
+    bool onGround(){
+        float currentY = GetComponent<Transform>().position.y;
+
+        if(currentY < -3){
+            return true;
+        }
+
+        return false ; 
+    }
+
+    
     
 
    

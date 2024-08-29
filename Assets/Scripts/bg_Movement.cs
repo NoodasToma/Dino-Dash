@@ -7,10 +7,15 @@ public class bg_Movement : MonoBehaviour
    // Start is called before the first frame update
     public float moveSpeed ;
     public float deadZone ;
+
+    private Logic_Script logic;
+     private float timesIncreased=1;
     // Start is called before the first frame update
     void Start()
     {
-        
+        logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logic_Script>();
+        timesIncreased=logic.playerScore/20;
+        moveSpeed += timesIncreased;
     }
 
     // Update is called once per frame
