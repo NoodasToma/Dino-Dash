@@ -8,6 +8,8 @@ public class FireBoltScript : MonoBehaviour
 
     public float moveSpeed;
 
+    public float deadZone;
+
 
 
    
@@ -21,6 +23,11 @@ public class FireBoltScript : MonoBehaviour
     void Update()
     {
          transform.position = transform.position + (Vector3.right * moveSpeed) * Time.deltaTime;
+
+         if(transform.position.x > deadZone)
+        {
+           Destroy(gameObject);
+        }
     }
 
 

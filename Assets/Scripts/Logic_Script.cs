@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class Logic_Script : MonoBehaviour
 {
     public int playerScore;
+
+    public bool gameIsOver=false;
     public Text scoreText;
 
     public Text highScore;
@@ -21,6 +23,14 @@ public class Logic_Script : MonoBehaviour
         highScore.text =   PlayerPrefs.GetInt("HighScore", 0).ToString();
         
     }
+
+
+    void Update(){
+
+        if(Input.GetKeyDown(KeyCode.Space)&&gameIsOver){
+            restartGame();
+        }
+    }
     public void addScore(int scoreToadd){
         playerScore = playerScore + scoreToadd;
         scoreText.text = playerScore.ToString();
@@ -29,6 +39,8 @@ public class Logic_Script : MonoBehaviour
             PlayerPrefs.SetInt("HighScore", playerScore);
             highScore.text = playerScore.ToString();
         }
+
+
 
     }
 
@@ -43,6 +55,7 @@ public class Logic_Script : MonoBehaviour
     }
 
     public void gameOver(){
+        gameIsOver=true;
         gameOverScreen.SetActive(true);
        
     }
@@ -53,6 +66,10 @@ public class Logic_Script : MonoBehaviour
 
     public void ExitHelp(){
         HelpScreen.SetActive(false);
+    }
+
+    public void QuitGame(){
+        SceneManager.LoadScene(0);
     }
 
 

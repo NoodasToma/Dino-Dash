@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.VisualScripting;
-using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class dinoscript : MonoBehaviour
@@ -36,6 +35,17 @@ public class dinoscript : MonoBehaviour
 
     private float jumpCount = 0;
 
+
+    public AudioSource jumpAudio;
+
+    public AudioSource fireAudio;
+
+    public AudioSource itemAudio;
+
+    public AudioSource deathAudio;
+
+    public AudioSource mainAudio;
+
    
            
    
@@ -61,6 +71,7 @@ public class dinoscript : MonoBehaviour
                 myAnimator.SetBool("Drunk",false);
                 inAir=true;
                 jumpCount=0;
+                jumpAudio.Play();
             }
         }
 
@@ -88,6 +99,7 @@ public class dinoscript : MonoBehaviour
                 myAnimator.SetTrigger("Fired");
                 Instantiate(fire, transform.position, transform.rotation);
                 FireCount();
+                fireAudio.Play();
              }
          }
         }
@@ -113,9 +125,12 @@ public class dinoscript : MonoBehaviour
     }
 
     public void death(){
-        dinoIsAlive = false;
+        if(dinoIsAlive){
         transform.Rotate(0,0,90);
-
+        deathAudio.Play();
+        }
+        
+        dinoIsAlive = false;
     }
 
   
@@ -134,11 +149,13 @@ public class dinoscript : MonoBehaviour
         if(other.gameObject.tag=="Beer"){
             drunk=true;
             myAnimator.SetBool("Drunk",true);
+            itemAudio.Play();
         }
         if(other.gameObject.tag=="Lobiani"&&shots.ToArray().Length<3){
             shots.Push(true);
             Debug.Log("appended");
             FireCount();
+            itemAudio.Play();
         }
     }
 

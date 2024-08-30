@@ -13,6 +13,7 @@ TagManager:
   - Lobiani
   - FireCount
   - Help
+  - LeaderBoard
   layers:
   - Default
   - TransparentFX
