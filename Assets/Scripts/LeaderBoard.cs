@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using System;
 using Dan.Main;
+using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 public class LeaderBoard : MonoBehaviour
 {
@@ -12,12 +14,30 @@ public class LeaderBoard : MonoBehaviour
 
     public List<TextMeshProUGUI> scores;
 
-    private String leaderboardKey = "980324f10e2f03fc0fd6a38a70f88123919a6aed35a4aea86211ad58b68db9c4";
+    private String leaderboardKey = "13affdd64aa333fe7b65577c2902dc4fcf968d5ede33bd147746dad4965dd2e2";
 
+    private  String  PlayerName;
+
+    public TextMeshProUGUI inputField;
+
+    
     // Start is called before the first frame update
     void Start()
     {
+
+        inputField.text = PlayerPrefs.GetString("Name","EnterName");
         GetLeaderBoard();
+
+        
+    }
+
+
+
+    public void SetName(String InputName){
+        PlayerName=InputName;
+        PlayerPrefs.SetString("Name",PlayerName);
+        setEntry(PlayerPrefs.GetString("Name","Empty"),PlayerPrefs.GetInt("HighScore",0));
+        
     }
 
     // Update is called once per frame
@@ -37,7 +57,7 @@ public class LeaderBoard : MonoBehaviour
     public void setEntry(String name , int score){
 
         
-        if(name.Length>25) name = name.Substring(0,25);
+        if(name.Length>15) name = name.Substring(0,15);
 
         LeaderboardCreator.UploadNewEntry(leaderboardKey,name,score,((_) => {
             GetLeaderBoard();
