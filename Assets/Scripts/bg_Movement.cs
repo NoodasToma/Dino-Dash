@@ -8,12 +8,21 @@ public class bg_Movement : MonoBehaviour
     public float moveSpeed ;
     public float deadZone ;
 
+    private bg_spawn spawner;
+
     private Logic_Script logic;
-     private float timesIncreased=1;
+
+    private bool bgin=true;
+
+
+    private float timesIncreased=1;
+
+
     // Start is called before the first frame update
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logic_Script>();
+        spawner =  GameObject.FindGameObjectWithTag("BG").GetComponent<bg_spawn>();
         timesIncreased=logic.playerScore/20;
         moveSpeed += timesIncreased;
     }
@@ -22,10 +31,16 @@ public class bg_Movement : MonoBehaviour
     void Update()
     {
         transform.position = transform.position + (Vector3.left * moveSpeed) * Time.deltaTime;
+        if(transform.position.x < -212&&bgin){
+            Debug.Log("spawned");
+            spawner.Spawnbg();
+            bgin=false;
+        }
         if(transform.position.x < deadZone)
         {
             Debug.Log("bg deleted");
             Destroy(gameObject);
+            bgin= true;
         }
     }
 }

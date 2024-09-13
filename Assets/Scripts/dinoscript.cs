@@ -150,12 +150,14 @@ public class dinoscript : MonoBehaviour
             drunk=true;
             myAnimator.SetBool("Drunk",true);
             itemAudio.Play();
+            GameObject.Destroy(other.gameObject);
         }
         if(other.gameObject.tag=="Lobiani"&&shots.ToArray().Length<3){
             shots.Push(true);
             Debug.Log("appended");
             FireCount();
             itemAudio.Play();
+            GameObject.Destroy(other.gameObject);
         }
     }
 

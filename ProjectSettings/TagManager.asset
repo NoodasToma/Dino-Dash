@@ -14,6 +14,7 @@ TagManager:
   - FireCount
   - Help
   - LeaderBoard
+  - BG
   layers:
   - Default
   - TransparentFX

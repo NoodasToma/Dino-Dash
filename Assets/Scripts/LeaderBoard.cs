@@ -24,10 +24,8 @@ public class LeaderBoard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        inputField.text = PlayerPrefs.GetString("Name","EnterName");
+     
         GetLeaderBoard();
-
         
     }
 
@@ -51,6 +49,8 @@ public class LeaderBoard : MonoBehaviour
                 scores[i].text=msg[i].Score.ToString();
             }
         }));
+
+        inputField.text = PlayerPrefs.GetString("Name","EnterName");
     }
 
 

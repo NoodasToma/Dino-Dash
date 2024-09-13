@@ -2572,6 +2572,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -865
       objectReference: {fileID: 0}
+    - target: {fileID: 1878099950681288349, guid: 7943a178e930478429f734fb52e38fbf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1892289107546890784, guid: 7943a178e930478429f734fb52e38fbf, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -3054,11 +3058,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7577418384360197088, guid: 7943a178e930478429f734fb52e38fbf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 877
+      value: 920.5
       objectReference: {fileID: 0}
     - target: {fileID: 7577418384360197088, guid: 7943a178e930478429f734fb52e38fbf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 477
+      value: 512.7
       objectReference: {fileID: 0}
     - target: {fileID: 8325405198587896301, guid: 7943a178e930478429f734fb52e38fbf, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3745,7 +3749,7 @@ GameObject:
   - component: {fileID: 1688329423}
   m_Layer: 0
   m_Name: bg_Spawner
-  m_TagString: Untagged
+  m_TagString: BG
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3759,7 +3763,7 @@ Transform:
   m_GameObject: {fileID: 1688329421}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 77, y: 1.1, z: 0}
+  m_LocalPosition: {x: 10.55, y: 3.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3777,8 +3781,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb4255893c154b449fec656f23fb62b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bg: {fileID: 4185828812542986936, guid: b31c273b2f0fadb4b8a235d629f12ed8, type: 3}
-  spawnrate: 23.4
+  bg: {fileID: 7872285310122181412, guid: a97e80ba2886d404abc4a434d5b18902, type: 3}
+  spawnX: 19.73
+  spawnY: -0.3300205
 --- !u!114 &1734270911 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6260291606878264496, guid: 7943a178e930478429f734fb52e38fbf, type: 3}
