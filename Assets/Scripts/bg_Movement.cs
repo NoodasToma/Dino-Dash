@@ -15,7 +15,7 @@ public class bg_Movement : MonoBehaviour
     private bool bgin=true;
 
 
-    private float timesIncreased=1;
+    
 
 
     // Start is called before the first frame update
@@ -23,8 +23,7 @@ public class bg_Movement : MonoBehaviour
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<Logic_Script>();
         spawner =  GameObject.FindGameObjectWithTag("BG").GetComponent<bg_spawn>();
-        timesIncreased=logic.playerScore/20;
-        moveSpeed += timesIncreased;
+       
     }
 
     // Update is called once per frame
